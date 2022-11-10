@@ -1,0 +1,34 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "de9b4c3d-e981-4450-bc54-7172680d12aa",
+            "actions": [
+                {
+                    "name": "Arm",
+                    "type": "Button",
+                    "id": "8acad985-dde3-4229-b83a-6459d7a0aabb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bd7ad817-5e6e-4881-a09f-e5b61f0332ce",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
