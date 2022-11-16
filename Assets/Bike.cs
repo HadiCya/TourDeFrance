@@ -12,7 +12,6 @@ public class Bike : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        Debug.Log("moving: " + value.Get<Vector3>());
         moveInput = value.Get<Vector3>();
     }
 
