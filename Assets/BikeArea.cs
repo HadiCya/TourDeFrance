@@ -5,6 +5,8 @@ using UnityEngine;
 public class BikeArea : MonoBehaviour
 {
     public float moveSpeed = 1f;
+    public Bike bike1;
+    public Bike bike2;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +18,13 @@ public class BikeArea : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(0, 0, transform.position.z + (moveSpeed * Time.deltaTime));
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Bike"))
+        {
+            other.GetComponent<Bike>().TeleportToSpawn();
+        }
     }
 }
