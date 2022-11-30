@@ -5,7 +5,8 @@ using UnityEngine;
 public class Arm : MonoBehaviour
 {
     private Controls controls;
-    public Transform customPivot;
+    public Rigidbody rb;
+    public float speed;
 
     #region InputSystem //Sets up player controls with input system
     private void Awake(){
@@ -20,9 +21,12 @@ public class Arm : MonoBehaviour
     #endregion
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2 direction = controls.Player.Arm.ReadValue<Vector2>();
-        transform.RotateAround(customPivot.position, new Vector3(0, direction.x), 100 * Time.deltaTime);
+        rb.velocity = new Vector3(direction.x, 0, direction.y) * speed;
+        Debug.Log(rb.velocity);
+        //TODO: MAKE SO PLAYER CANNOT HOLD IN SAME GENERAL POSITION FOR LONGER THAN LIKE 0.1 SECOND
     }
+
 }
