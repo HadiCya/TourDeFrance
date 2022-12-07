@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class MyBikeControll : MonoBehaviour
 {
@@ -108,6 +109,7 @@ public class MyBikeControll : MonoBehaviour
     [HideInInspector]
     public float steer2;
 
+    [SerializeField]
     private float accel = 0.0f;
     public float Z_Rotation = 5;
 
@@ -319,21 +321,7 @@ public class MyBikeControll : MonoBehaviour
 
     void Update()
     {
-        if (activeControl)
-        {
-            if (!bikeSetting.automaticGear)
-            {
-                if (Input.GetKeyDown("page up"))
-                {
-                    ShiftUp();
-                }
-                if (Input.GetKeyDown("page down"))
-                {
-                    ShiftDown();
-                }
-            }
-        }
-
+       
         steer2 = Mathf.LerpAngle(steer2, steer * -bikeSetting.maxSteerAngle, Time.deltaTime * 10.0f);
 
         MotorRotation = Mathf.LerpAngle(MotorRotation, steer2 * bikeSetting.maxTurn * (Mathf.Clamp(speed / Z_Rotation, 0.0f, 1.0f)), Time.deltaTime * 5.0f);
@@ -367,6 +355,19 @@ public class MyBikeControll : MonoBehaviour
         {
             bikeSetting.MainBody.localRotation = Quaternion.identity;
             Wheelie = 0;
+        }
+    }
+
+    void OnMove(InputValue value)
+    {
+        accel = 0.0f;
+        if (activeControl)
+        {
+            
+            if (!crash)
+            {
+                accel = value.Get<Vector2>().y;
+            }
         }
     }
 
