@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     float curHealth;
     [SerializeField]
     float maxHealth = 100f;
+    [SerializeField]
+    CapsuleCollider hurtBox;
 
     private void Start()
     {
@@ -28,5 +30,15 @@ public class Player : MonoBehaviour
     public float GetMaxHealth()
     {
         return maxHealth;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // make sure the player was hit by a baguette
+        if (!other.CompareTag("Baguette")) return;
+
+        Debug.Log("Player hit by baguette" + this);
+
+        TakeDamage(10);
     }
 }
