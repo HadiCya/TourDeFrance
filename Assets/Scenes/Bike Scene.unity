@@ -1587,6 +1587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2696859545340319694, guid: e89669b6dfa9a4f45b3105775f0f79a6, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 403724258}
     - target: {fileID: 8782589637602950217, guid: e89669b6dfa9a4f45b3105775f0f79a6, type: 3}
       propertyPath: m_Name
       value: BMXBikeE
