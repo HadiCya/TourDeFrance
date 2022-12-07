@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     float curHealth;
-
-    float maxHealth;
+    [SerializeField]
+    float maxHealth = 100f;
 
     private void Start()
     {
@@ -16,6 +16,17 @@ public class Player : MonoBehaviour
 
     void TakeDamage(float damage)
     {
+        curHealth -= damage;
+        if (curHealth < 0f) curHealth = 0f;
+    }
 
+    public float GetCurHealth()
+    {
+        return curHealth;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
     }
 }
