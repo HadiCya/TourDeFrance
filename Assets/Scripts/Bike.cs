@@ -14,13 +14,13 @@ public class Bike : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector3>();
+        moveInput = value.Get<Vector2>() * moveScale;
     }
 
     private void Update()
     {
-        // move the bike
-        rb.velocity += moveInput * moveScale;
+        // move the bike. Movement input should not be used for vertical (rb.y) velocity
+        rb.velocity += new Vector3(moveInput.x, 0, moveInput.y);
 
         // cap horizontal movement speed to maxMoveSpeed
         var horizontalMovement = new Vector2(rb.velocity.x, rb.velocity.z);
