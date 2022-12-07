@@ -361,12 +361,14 @@ public class MyBikeControll : MonoBehaviour
     void OnMove(InputValue value)
     {
         accel = 0.0f;
+        steer = 0;
         if (activeControl)
         {
             
             if (!crash)
             {
                 accel = value.Get<Vector2>().y;
+                steer = Mathf.MoveTowards(steer, value.Get<Vector2>().x, 0.1f);
             }
         }
     }
@@ -394,14 +396,13 @@ public class MyBikeControll : MonoBehaviour
 
             if (!crash)
             {
-                steer = Mathf.MoveTowards(steer, Input.GetAxis("Horizontal"), 0.1f);
-                accel = Input.GetAxis("Vertical");
+                
                 brake = Input.GetButton("Jump");
                 shift = Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift);
             }
             else
             {
-                steer = 0;
+                
             }
         }
         else
