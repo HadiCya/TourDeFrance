@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerConfiguration : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerInput input;
+    public int playerIndex;
+    public bool isReady;
+    public Material playerMaterial;
 
-    // Update is called once per frame
-    void Update()
+    public PlayerConfiguration(PlayerInput pi)
     {
-        
+        playerIndex = pi.playerIndex;
+        input = pi;
     }
 }
