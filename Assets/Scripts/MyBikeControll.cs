@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+
 
 public class MyBikeControll : MonoBehaviour
 {
+    Vector2 direction;
+
+
     public bool activeControl = false;
 
     public BikeWheels bikeWheels;
@@ -261,6 +266,11 @@ public class MyBikeControll : MonoBehaviour
         }
     }
 
+    private void OnMove(InputValue value)
+    {
+        direction = value.Get<Vector2>();
+    }
+
     public void ShiftUp()
     {
         float now = Time.timeSinceLevelLoad;
@@ -373,7 +383,6 @@ public class MyBikeControll : MonoBehaviour
     void FixedUpdate()
     {
         speed = myRigidbody.velocity.magnitude * 2.7f;
-
         if (crash)
         {
             myRigidbody.constraints = RigidbodyConstraints.None;
@@ -393,8 +402,9 @@ public class MyBikeControll : MonoBehaviour
 
             if (!crash)
             {
-                steer = Mathf.MoveTowards(steer, Input.GetAxis("Horizontal"), 0.1f);
-                accel = Input.GetAxis("Vertical");
+                
+                steer = Mathf.MoveTowards(steer, direction.x, 0.1f);
+                accel = direction.y;
                 brake = Input.GetButton("Jump");
                 shift = Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift);
             }

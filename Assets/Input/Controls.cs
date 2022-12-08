@@ -147,6 +147,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
                 }
             ]
         }
