@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 1369301490215719782}
   - component: {fileID: -5428777276092880890}
   - component: {fileID: 2776958253347114321}
+  - component: {fileID: 5827793911257669490}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -569,6 +570,22 @@ CapsuleCollider:
   m_Height: 3.6551719
   m_Direction: 1
   m_Center: {x: 0, y: 1.7477636, z: 0.02}
+--- !u!114 &5827793911257669490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369301490215719783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617be9738759843a0816d1d61525f7d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 130593756150437317}
+  armSpeed: 0
+  position: {fileID: 4664491731241363912}
+  RightShoulder: {fileID: 0}
 --- !u!1 &1493937878273910986
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4664491731241363912}
+  - component: {fileID: 130593756150437317}
   m_Layer: 0
   m_Name: RightShoulder
   m_TagString: Untagged
@@ -667,6 +685,22 @@ Transform:
   m_Father: {fileID: 1257633955150750994}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &130593756150437317
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659565078047421888}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1813103076347480549
 GameObject:
   m_ObjectHideFlags: 0
