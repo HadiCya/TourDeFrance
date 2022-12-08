@@ -693,13 +693,13 @@ public class MyBikeControll : MonoBehaviour
             col.steerAngle = steer * (w.maxSteer / SteerAngle);
         }
 
-        //ARM CONTROLS
-        Vector2 armDirection = controls.Player.Arm.ReadValue<Vector2>();
-        rb.velocity = new Vector3(armDirection.x, 0, armDirection.y) * armSpeed;
-        //Debug.Log(rb.velocity);
-        //TODO: MAKE SO PLAYER CANNOT HOLD IN SAME GENERAL POSITION FOR LONGER THAN LIKE 0.1 SECOND
-        armRoot.transform.position = Vector3.MoveTowards(armRoot.transform.position, position.position, armSpeed * Time.deltaTime);
-        Debug.Log(armRoot.transform.position);
+        ////ARM CONTROLS
+        //Vector2 armDirection = controls.Player.Arm.ReadValue<Vector2>();
+        //rb.velocity = new Vector3(armDirection.x, 0, armDirection.y) * armSpeed;
+        ////Debug.Log(rb.velocity);
+        ////TODO: MAKE SO PLAYER CANNOT HOLD IN SAME GENERAL POSITION FOR LONGER THAN LIKE 0.1 SECOND
+        //armRoot.transform.position = Vector3.MoveTowards(armRoot.transform.position, position.position, armSpeed * Time.deltaTime);
+        //Debug.Log(armRoot.transform.position);
 
         //        Pitch = Mathf.Clamp(1.2f + ((motorRPM - bikeSetting.idleRPM) / (bikeSetting.shiftUpRPM - bikeSetting.idleRPM)), 1.0f, 10.0f);
 
