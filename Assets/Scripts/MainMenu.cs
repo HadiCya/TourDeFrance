@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void LoadSinglePlayer()
     {
-
+        SceneManager.LoadScene("MapScene");
     }
 
     public void LoadMultiplayer()
