@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.3679245, g: 0, b: 0.22959597, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 4067de1a02072244798361060c5e7325, type: 2}
   m_HaloStrength: 0.469
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1892166534}
-  m_IndirectSpecularColor: {r: 0.18375482, g: 0.22825457, b: 0.29941994, a: 1}
+  m_IndirectSpecularColor: {r: 0.25330302, g: 0.21698889, b: 0.23319246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1389,8 +1389,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tour De France
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2036,43 +2036,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.229992
+      value: 7.65
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3800144
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.569996
+      value: 13.23
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.39986506
+      value: 0.4694292
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.024041869
+      value: -0.027351197
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.89317846
+      value: 0.86031544
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.20435804
+      value: 0.19683899
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -22.599
+      value: -21.369
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 490.265
+      value: 481.154
       objectReference: {fileID: 0}
     - target: {fileID: 4454281833082904670, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 7.499
+      value: 8.506
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 723806481730489704, guid: 3956aa5c471f30e408d48d0a32d805e1, type: 3}
