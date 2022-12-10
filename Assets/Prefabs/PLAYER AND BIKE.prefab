@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2723757352669624677}
   - component: {fileID: 319928629052993793}
-  - component: {fileID: 6986715071729115453}
   - component: {fileID: 3071547131873346436}
   m_Layer: 0
   m_Name: Camera
@@ -77,14 +76,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &6986715071729115453
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3563532491997183741}
-  m_Enabled: 0
 --- !u!114 &3071547131873346436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5815544808343354326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 941.0132, y: 451.42148, z: 19.572205}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -692,15 +683,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750612588553095645, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -751.0942
+      value: -0.115
       objectReference: {fileID: 0}
     - target: {fileID: 1750612588553095645, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -451.42148
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1750612588553095645, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4877.681
+      value: -0.085
       objectReference: {fileID: 0}
     - target: {fileID: 1750612588553095645, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1938,15 +1929,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2294079457819747213, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -750.96985
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2294079457819747213, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -451.33145
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2294079457819747213, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4877.6055
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2294079457819747213, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2036,6 +2027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MyBike
       objectReference: {fileID: 0}
+    - target: {fileID: 4904796189775165327, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
+      propertyPath: m_Name
+      value: Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 8354008337403897372, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
       propertyPath: bikeSetting.idleRPM
       value: 10
@@ -2068,7 +2063,8 @@ PrefabInstance:
       propertyPath: bikeSetting.LimitBackwardSpeed
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2582620691032756960, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
 --- !u!4 &8129477908555510298 stripped
 Transform:

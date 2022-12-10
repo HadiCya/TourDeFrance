@@ -8,20 +8,47 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject pausePanel;
-    bool isPaused = false;
+    static bool isPaused = false;
 
-    void OnPause()
+    public void OnPause()
+    {
+        if (pausePanel == null)
+        {
+            Debug.Log("Pause panel is null, returning");
+            return;
+        }
+
+        if (isPaused)
+        {
+            Unpause();
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
+    public void Unpause()
+    {
+        Debug.Log("Unpausing");
+        isPaused = false;
+        pausePanel.SetActive(false);
+    }
+
+    public void Pause()
     {
         Debug.Log("Pausing");
-        if (pausePanel == null) return;
-
-        // flip isPaused
-        isPaused = !isPaused;
-        pausePanel.SetActive(isPaused);
+        isPaused = true;
+        pausePanel.SetActive(true);
     }
 
     public void QuitApplication()
     {
         Application.Quit();
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }
