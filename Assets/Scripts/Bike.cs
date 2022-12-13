@@ -26,7 +26,7 @@ public class Bike : MonoBehaviour
         var horizontalMovement = new Vector2(rb.velocity.x, rb.velocity.z);
         horizontalMovement = Vector2.ClampMagnitude(horizontalMovement, maxMoveSpeed);
         rb.velocity = new Vector3(horizontalMovement.x, rb.velocity.y, horizontalMovement.y);
-        transform.rotation = Quaternion.Euler(0, 90, 0);
+        //transform.rotation = Quaternion.Euler(0, 90, 0);
     }
 
     // player dies, bike falls out of world, etc.
@@ -34,7 +34,7 @@ public class Bike : MonoBehaviour
     {
         Debug.Log("Teleporting bike to spawn");
         transform.position = spawnPoint.transform.position;
-        transform.rotation = Quaternion.Euler(0, 90, 0);
+        //transform.rotation = Quaternion.Euler(0, 90, 0);
         rb.velocity = new Vector3(0, -1, 0);
         rb.angularVelocity = new Vector3(0, 0, 0);
     }
