@@ -13,10 +13,8 @@ public class MyBikeControll : MonoBehaviour
     public BikeWheels bikeWheels;
 
     private Controls controls;
-    public Rigidbody rb;
-    public float armSpeed;
-    public Transform position;
-    public GameObject armRoot;
+ 
+  
 
 
     [System.Serializable]
@@ -64,17 +62,11 @@ public class MyBikeControll : MonoBehaviour
         public Transform MainBody;
         public Transform bikeSteer;
 
-
-        public float maxWheelie = 40.0f;
-        public float speedWheelie = 30.0f;
-
-        public float slipBrake = 3.0f;
-
         public float springs = 35000.0f;
         public float dampers = 4000.0f;
 
         public float bikePower = 120;
-        public float shiftPower = 150;
+        
         public float brakePower = 8000;
 
         public Vector3 shiftCentre = new Vector3(0.0f, -0.6f, 0.0f);
@@ -82,8 +74,7 @@ public class MyBikeControll : MonoBehaviour
         public float maxSteerAngle = 30.0f;
         public float maxTurn = 1.5f;
 
-        public float shiftDownRPM = 1500.0f;
-        public float shiftUpRPM = 4000.0f;
+      
         public float idleRPM = 700.0f;
 
         public float stiffness = 1.0f;
@@ -128,11 +119,7 @@ public class MyBikeControll : MonoBehaviour
     [HideInInspector]
     public float curTorque = 100f;
 
-    [HideInInspector]
-    public float powerShift = 100;
-
-    [HideInInspector]
-    public bool shift;
+ 
 
     private float flipRotate = 0.0f;
 
@@ -144,9 +131,6 @@ public class MyBikeControll : MonoBehaviour
 
     float efficiencyTableStep = 250.0f;
 
-    private float shiftDelay = 0.0f;
-
-    private float shiftTime = 0.0f;
 
     [HideInInspector]
     public int currentGear = 0;
@@ -161,9 +145,6 @@ public class MyBikeControll : MonoBehaviour
 
     private Rigidbody myRigidbody;
 
-    private bool shifting;
-
-    private float Wheelie;
     private Quaternion deltaRotation1, deltaRotation2;
 
     [HideInInspector]
@@ -282,7 +263,6 @@ public class MyBikeControll : MonoBehaviour
     {
         float now = Time.timeSinceLevelLoad;
 
-        if (now < shiftDelay) return;
 
         if (currentGear < bikeSetting.gears.Length - 1)
         {
@@ -304,16 +284,13 @@ public class MyBikeControll : MonoBehaviour
                 currentGear++;
             }
 
-            shiftDelay = now + 1.0f;
-            shiftTime = 1.0f;
+        
         }
     }
 
     public void ShiftDown()
     {
         float now = Time.timeSinceLevelLoad;
-
-        if (now < shiftDelay) return;
 
         if (currentGear > 0 || NeutralGear)
         {
@@ -329,27 +306,12 @@ public class MyBikeControll : MonoBehaviour
             {
                 currentGear--;
             }
-            shiftDelay = now + 0.1f;
-            shiftTime = 2.0f;
+       
         }
     }
 
     void Update()
     {
-        if (activeControl)
-        {
-            if (!bikeSetting.automaticGear)
-            {
-                if (Input.GetKeyDown("page up"))
-                {
-                    ShiftUp();
-                }
-                if (Input.GetKeyDown("page down"))
-                {
-                    ShiftDown();
-                }
-            }
-        }
 
         steer2 = Mathf.LerpAngle(steer2, steer * -bikeSetting.maxSteerAngle, Time.deltaTime * 10.0f);
 
@@ -362,18 +324,8 @@ public class MyBikeControll : MonoBehaviour
         {
             flipRotate = (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270) ? 180.0f : 0.0f;
 
-            Wheelie = Mathf.Clamp(Wheelie, 0, bikeSetting.maxWheelie);
-
-            if (shifting)
-            {
-                Wheelie += bikeSetting.speedWheelie * Time.deltaTime / (speed / 50);
-            }
-            else
-            {
-                Wheelie = Mathf.MoveTowards(Wheelie, 0, (bikeSetting.speedWheelie * 2) * Time.deltaTime * 1.3f);
-            }
-
-            deltaRotation1 = Quaternion.Euler(-Wheelie, 0, flipRotate - transform.localEulerAngles.z + (MotorRotation));
+           
+            deltaRotation1 = Quaternion.Euler(0, 0, flipRotate - transform.localEulerAngles.z + (MotorRotation));
             deltaRotation2 = Quaternion.Euler(0, 0, flipRotate - transform.localEulerAngles.z);
 
 
@@ -383,7 +335,7 @@ public class MyBikeControll : MonoBehaviour
         else
         {
             bikeSetting.MainBody.localRotation = Quaternion.identity;
-            Wheelie = 0;
+            
         }
     }
 
@@ -404,7 +356,7 @@ public class MyBikeControll : MonoBehaviour
         if (activeControl)
         {
             accel = 0.0f;
-            shift = false;
+         
             brake = false;
 
             if (!crash)
@@ -413,7 +365,7 @@ public class MyBikeControll : MonoBehaviour
                 steer = Mathf.MoveTowards(steer, direction.x, 0.1f);
                 accel = direction.y;
                 brake = Input.GetButton("Jump");
-                shift = Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift);
+                
             }
             else
             {
@@ -424,7 +376,7 @@ public class MyBikeControll : MonoBehaviour
         {
             accel = 0.0f;
             steer = 0.0f;
-            shift = false;
+         
             brake = false;
         }
 
@@ -439,11 +391,11 @@ public class MyBikeControll : MonoBehaviour
             if (speed < 5.0f)
                 ShiftUp();
         }
-        else if (bikeSetting.automaticGear && (motorRPM > bikeSetting.shiftUpRPM) && (accel > 0.0f) && speed > 10.0f && !brake)
+        else if (bikeSetting.automaticGear  && (accel > 0.0f) && speed > 10.0f && !brake)
         {
             ShiftUp();
         }
-        else if (bikeSetting.automaticGear && (motorRPM < bikeSetting.shiftDownRPM) && (currentGear > 1))
+        else if (bikeSetting.automaticGear  && (currentGear > 1))
         {
             ShiftDown();
         }
@@ -527,11 +479,7 @@ public class MyBikeControll : MonoBehaviour
             {
                 if ((accel < 0.0f) || (brake && w == wheels[1]))
                 {
-                    if (brake && (accel > 0.0f))
-                    {
-                        slip = Mathf.Lerp(slip, bikeSetting.slipBrake, accel * 0.01f);
-                    }
-                    else if (speed > 1.0f)
+                   if (speed > 1.0f)
                     {
                         slip = Mathf.Lerp(slip, 1.0f, 0.002f);
                     }
@@ -566,28 +514,7 @@ public class MyBikeControll : MonoBehaviour
                 col.sidewaysFriction = fc;
             }
 
-            if (shift && (currentGear > 1 && speed > 50.0f) && shifmotor)
-            {
-                shifting = true;
-                if (powerShift == 0) { shifmotor = false; }
-
-                powerShift = Mathf.MoveTowards(powerShift, 0.0f, Time.deltaTime * 10.0f);
-
-                curTorque = powerShift > 0 ? bikeSetting.shiftPower : bikeSetting.bikePower;
-            }
-            else
-            {
-                shifting = false;
-
-                if (powerShift > 20)
-                {
-                    shifmotor = true;
-                }
-
-                powerShift = Mathf.MoveTowards(powerShift, 100.0f, Time.deltaTime * 5.0f);
-                curTorque = bikeSetting.bikePower;
-            }
-
+       
             w.rotation = Mathf.Repeat(w.rotation + Time.deltaTime * col.rpm * 360.0f / 60.0f, 360.0f);
             w.rotation2 = Mathf.Repeat(w.rotation2 + Time.deltaTime * col.rpm * 360.0f / 1000.0f, 360.0f);
             w.wheel.localRotation = Quaternion.Euler(w.rotation, 0.0f, 0.0f);
@@ -601,7 +528,7 @@ public class MyBikeControll : MonoBehaviour
 
             Vector3 lp = w.axle.localPosition;
 
-            if (col.GetGroundHit(out hit) && (w == wheels[1] || (w == wheels[0] && Wheelie == 0)))
+            if (col.GetGroundHit(out hit) && (w == wheels[1] || (w == wheels[0] )))
             {
                 lp.y -= Vector3.Dot(w.wheel.position - hit.point, transform.TransformDirection(0, 1, 0)) - (col.radius);
                 lp.y = Mathf.Clamp(lp.y, w.startPos.y - bikeWheels.setting.Distance, w.startPos.y + bikeWheels.setting.Distance);
@@ -693,17 +620,7 @@ public class MyBikeControll : MonoBehaviour
             col.steerAngle = steer * (w.maxSteer / SteerAngle);
         }
 
-        ////ARM CONTROLS
-        //Vector2 armDirection = controls.Player.Arm.ReadValue<Vector2>();
-        //rb.velocity = new Vector3(armDirection.x, 0, armDirection.y) * armSpeed;
-        ////Debug.Log(rb.velocity);
-        ////TODO: MAKE SO PLAYER CANNOT HOLD IN SAME GENERAL POSITION FOR LONGER THAN LIKE 0.1 SECOND
-        //armRoot.transform.position = Vector3.MoveTowards(armRoot.transform.position, position.position, armSpeed * Time.deltaTime);
-        //Debug.Log(armRoot.transform.position);
-
-        //        Pitch = Mathf.Clamp(1.2f + ((motorRPM - bikeSetting.idleRPM) / (bikeSetting.shiftUpRPM - bikeSetting.idleRPM)), 1.0f, 10.0f);
-
-        shiftTime = Mathf.MoveTowards(shiftTime, 0.0f, 0.1f);
+     
     }
     void OnDrawGizmos()
     {
