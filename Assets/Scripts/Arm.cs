@@ -30,7 +30,7 @@ public class Arm : MonoBehaviour
         //Debug.Log(rb.velocity);
         //TODO: MAKE SO PLAYER CANNOT HOLD IN SAME GENERAL POSITION FOR LONGER THAN LIKE 0.1 SECOND
         RightShoulder.transform.position = Vector3.MoveTowards(RightShoulder.transform.position, position.position, armSpeed*100*Time.deltaTime);
-        Debug.Log(position.position);
+        //Debug.Log(position.position);
 
     }
 
