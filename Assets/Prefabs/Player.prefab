@@ -555,6 +555,7 @@ MonoBehaviour:
   curHealth: 0
   maxHealth: 100
   hurtBox: {fileID: 0}
+  laptime: 0
 --- !u!136 &2776958253347114321
 CapsuleCollider:
   m_ObjectHideFlags: 0
