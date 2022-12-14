@@ -14,6 +14,13 @@ public class Bike : MonoBehaviour
     public int playerID;
     public Vector3 startPos;
     PauseMenu pauseMenu;
+    [SerializeField]
+    Player player;
+
+    [SerializeField]
+    HealthBar player1HealthBar;
+    [SerializeField]
+    HealthBar player2HealthBar;
 
     private void Start()
     {
@@ -22,6 +29,12 @@ public class Bike : MonoBehaviour
         gameObject.transform.SetParent(boundingbox[0].transform);
         transform.localPosition = new Vector3(0, 0, 0);
         pauseMenu = FindObjectOfType<PauseMenu>();
+
+        player1HealthBar = GameObject.Find("P1HealthBar").GetComponent<HealthBar>();
+        player2HealthBar = GameObject.Find("P2HealthBar").GetComponent<HealthBar>();
+
+        if (player1HealthBar.player == null) player1HealthBar.player = player;
+        else player2HealthBar.player = player;
     }
 
     private void OnMove(InputValue value)

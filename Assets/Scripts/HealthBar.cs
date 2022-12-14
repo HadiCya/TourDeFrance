@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     Slider slider;
     [SerializeField]
-    Player player;
+    public Player player;
     [SerializeField]
     TMPro.TextMeshProUGUI curHealthText;
 

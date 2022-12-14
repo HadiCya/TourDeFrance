@@ -343,6 +343,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   playerID: 0
   startPos: {x: 0, y: 0, z: 0}
+  player: {fileID: 8783182330199558009}
+  player1HealthBar: {fileID: 0}
+  player2HealthBar: {fileID: 0}
 --- !u!1 &3921909742049877614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc294c9227e5443cf8a475b8b819a362, type: 3}
+--- !u!136 &5096429414536332684 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 5092742402784858023, guid: dc294c9227e5443cf8a475b8b819a362, type: 3}
+  m_PrefabInstance: {fileID: 6519792412772907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8150847606637680556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8145473517287021959, guid: dc294c9227e5443cf8a475b8b819a362, type: 3}
@@ -1148,8 +1156,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5428777276092880890, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
       propertyPath: maxHealth
-      value: 112
+      value: 2000
       objectReference: {fileID: 0}
+    - target: {fileID: -5428777276092880890, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
+      propertyPath: selfBaguetteCollider
+      value: 
+      objectReference: {fileID: 5096429414536332684}
     - target: {fileID: 66840543152584373, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00007563797
@@ -2597,3 +2609,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1750612588553095645, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
   m_PrefabInstance: {fileID: 5570172222314459007}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8783182330199558009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5428777276092880890, guid: 63f023100e7cfe843ab0d5e69f0cd1c1, type: 3}
+  m_PrefabInstance: {fileID: 5570172222314459007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8734e3ebf64c304992d43c646aac85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
