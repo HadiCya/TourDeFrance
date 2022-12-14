@@ -7,26 +7,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
-    GameObject pausePanel;
-    static bool isPaused = false;
-
-    public void OnPause()
-    {
-        if (pausePanel == null)
-        {
-            Debug.Log("Pause panel is null, returning");
-            return;
-        }
-
-        if (isPaused)
-        {
-            Unpause();
-        }
-        else
-        {
-            Pause();
-        }
-    }
+    public GameObject pausePanel;
+    public static bool isPaused = false;
 
     public void Unpause()
     {

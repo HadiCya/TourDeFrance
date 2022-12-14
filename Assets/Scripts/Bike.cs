@@ -13,17 +13,38 @@ public class Bike : MonoBehaviour
     public GameObject spawnPoint;
     public int playerID;
     public Vector3 startPos;
+    PauseMenu pauseMenu;
 
     private void Start()
     {
         transform.position = startPos;
         GameObject[] boundingbox = GameObject.FindGameObjectsWithTag("BoundingBox");
         gameObject.transform.SetParent(boundingbox[0].transform);
+        transform.localPosition = new Vector3(0, 0, 0);
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>() * moveScale;
+    }
+
+    private void OnPause()
+    {
+        if (pauseMenu.pausePanel == null)
+        {
+            Debug.Log("Pause panel is null, returning");
+            return;
+        }
+
+        if (PauseMenu.isPaused)
+        {
+            pauseMenu.Unpause();
+        }
+        else
+        {
+            pauseMenu.Pause();
+        }
     }
 
     private void Update()
