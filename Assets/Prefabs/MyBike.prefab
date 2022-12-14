@@ -1534,6 +1534,8 @@ MonoBehaviour:
       Radius: 0.32
       Weight: 100
       Distance: 0.2
+  spawnPoint: {fileID: 0}
+  playerAndBikeObject: {fileID: 0}
   bikeSetting:
     showNormalGizmos: 0
     cameraSwitchView: []
@@ -1626,7 +1628,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9020100676181948280}
   - component: {fileID: 899349254051938286}
-  - component: {fileID: 2582620691032756960}
   m_Layer: 0
   m_Name: Camera (1)
   m_TagString: Untagged
@@ -1692,11 +1693,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2582620691032756960
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4904796189775165327}
-  m_Enabled: 1

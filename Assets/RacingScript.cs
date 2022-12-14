@@ -7,6 +7,7 @@ public class RacingScript : MonoBehaviour
 {
     public float laptime;
     private bool startTimer = false;
+    private bool checkpoint = false;
 
     public TextMeshProUGUI laptimeText;
 
@@ -26,11 +27,25 @@ public class RacingScript : MonoBehaviour
         }
         
     }
-
+     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("RedLine")) {
-            startTimer = true;
+            if (checkpoint == true)
+            {
+                startTimer = false;
+                Debug.Log("Stopped timer");
+            }
+            else {
+                startTimer = true;
+                checkpoint = false;
+                Debug.Log("Started timer");
+            }
+        }
+
+        if (other.gameObject.name == "Checkpoint") {
+            Debug.Log("Hit Checkpoint");
+            checkpoint = true;
         }
     }
 }
