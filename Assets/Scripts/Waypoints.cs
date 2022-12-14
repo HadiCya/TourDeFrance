@@ -24,11 +24,11 @@ public class Waypoints : MonoBehaviour
         waypoints.Reverse();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (waypoints.Count == 0) return;
 
+        // if we get close enough to the target waypoint, start heading to next waypoint
         if(Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < WPradius)
         {
             currentWP++;
@@ -37,6 +37,7 @@ public class Waypoints : MonoBehaviour
                 currentWP = 0;
             }
         }
+        
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWP].transform.position, Time.deltaTime * speed);
         var q = Quaternion.LookRotation(waypoints[currentWP].transform.position - transform.position);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * speed);

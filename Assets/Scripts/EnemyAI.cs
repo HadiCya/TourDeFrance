@@ -24,21 +24,19 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("BMXBikeE").transform;
+        //player = GameObject.Find("BMXBikeE").transform;
     }
 
     // Update is called once per frame
     private void Update()
     {
         transform.LookAt(player);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 90, transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
 
         if (Vector3.Distance(transform.position, player.position) >= minDist)
         {
 
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-
-
 
             if (Vector3.Distance(transform.position, player.position) <= maxDist)
             {
@@ -54,6 +52,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked) {
 
             //Place Actual Attack here!
+            Debug.Log("Attack player");
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
