@@ -11,6 +11,15 @@ public class Bike : MonoBehaviour
     float moveScale = 0.1f;
     float maxMoveSpeed = 6.5f;
     public GameObject spawnPoint;
+    public int playerID;
+    public Vector3 startPos;
+
+    private void Start()
+    {
+        transform.position = startPos;
+        GameObject[] boundingbox = GameObject.FindGameObjectsWithTag("BoundingBox");
+        gameObject.transform.SetParent(boundingbox[0].transform);
+    }
 
     private void OnMove(InputValue value)
     {
@@ -19,6 +28,7 @@ public class Bike : MonoBehaviour
 
     private void Update()
     {
+        
         // move the bike. Movement input should not be used for vertical (rb.y) velocity
         rb.velocity += new Vector3(moveInput.x, 0, moveInput.y);
 
