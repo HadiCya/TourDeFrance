@@ -38,5 +38,7 @@ public class Waypoints : MonoBehaviour
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWP].transform.position, Time.deltaTime * speed);
+        var q = Quaternion.LookRotation(waypoints[currentWP].transform.position - transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * speed);
     }
 }
