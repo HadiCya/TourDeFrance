@@ -1958,6 +1958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MyBike
       objectReference: {fileID: 0}
+    - target: {fileID: 8354008337403897372, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
+      propertyPath: playerAndBikeObject
+      value: 
+      objectReference: {fileID: 5815544808343354326}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
 --- !u!1 &6512030085033546930 stripped

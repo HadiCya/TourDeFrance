@@ -6,16 +6,14 @@ using UnityEngine.InputSystem;
 public class MyBikeControll : MonoBehaviour
 {
     Vector2 direction;
-
-
     public bool activeControl = false;
-
     public BikeWheels bikeWheels;
-
     private Controls controls;
- 
-  
-
+    [SerializeField]
+    GameObject spawnPoint;
+    static int numPlayers = 0;
+    [SerializeField]
+    GameObject playerAndBikeObject;
 
     [System.Serializable]
     public class BikeWheels
@@ -209,6 +207,23 @@ public class MyBikeControll : MonoBehaviour
 
     void Awake()
     {
+        numPlayers++;
+        switch (numPlayers)
+        {
+            case 1:
+                spawnPoint = GameObject.Find("Player1SpawnPoint");
+                break;
+            case 2:
+                spawnPoint = GameObject.Find("Player2SpawnPoint");
+                break;
+            default:
+                Debug.LogError("Error, too many players joining");
+                Destroy(playerAndBikeObject);
+                break;
+        }
+
+        TeleportToSpawn();
+
         if (bikeSetting.automaticGear) NeutralGear = false;
 
         myRigidbody = transform.GetComponent<Rigidbody>();
@@ -308,6 +323,14 @@ public class MyBikeControll : MonoBehaviour
             }
        
         }
+    }
+
+    // player dies, bike falls out of world, etc.
+    public void TeleportToSpawn()
+    {
+        Debug.Log("Teleporting bike to spawn");
+        playerAndBikeObject.transform.position = spawnPoint.transform.position;
+        playerAndBikeObject.transform.rotation = spawnPoint.transform.rotation;
     }
 
     void Update()
