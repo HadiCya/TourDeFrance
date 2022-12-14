@@ -696,8 +696,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12116427, y: 0.9246992, z: 0.8619642}
-  m_Center: {x: 0, y: -0.007896364, z: -0.0170331}
+  m_Size: {x: 0.12116426, y: 1.0092382, z: 1.0049323}
+  m_Center: {x: 0.000000021994666, y: 0.0025405427, z: -0.0038621}
 --- !u!1 &2429973635634059243
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,8 +793,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09257415, y: 0.92608213, z: 0.891901}
-  m_Center: {x: -0.008428581, y: -0.014318943, z: 0.0038747787}
+  m_Size: {x: 0.09257414, y: 0.9886554, z: 0.9944871}
+  m_Center: {x: -0.008428587, y: -0.0023150793, z: -0.000977656}
 --- !u!1 &2429973635634059249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 274100743440930257}
   m_Layer: 0
   m_Name: MyBike
-  m_TagString: Untagged
+  m_TagString: Bike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1538,20 +1538,14 @@ MonoBehaviour:
     cameraSwitchView: []
     MainBody: {fileID: 2062249471465015342}
     bikeSteer: {fileID: 2429973635634547669}
-    maxWheelie: 40
-    speedWheelie: 30
-    slipBrake: 3
     springs: 35000
     dampers: 4500
     bikePower: 300
-    shiftPower: 250
     brakePower: 12000
     shiftCentre: {x: 0, y: 0, z: 0}
     maxSteerAngle: 40
-    maxTurn: 1.5
-    shiftDownRPM: 1500
-    shiftUpRPM: 4000
-    idleRPM: 700
+    maxTurn: 2
+    idleRPM: 10
     stiffness: 1
     automaticGear: 1
     gears:
@@ -1560,8 +1554,8 @@ MonoBehaviour:
     - 4
     - 3
     - 2
-    LimitBackwardSpeed: 10
-    LimitForwardSpeed: 300
+    LimitBackwardSpeed: 20
+    LimitForwardSpeed: 25
   grounded: 1
   crash: 0
   steer: 0
@@ -1570,8 +1564,6 @@ MonoBehaviour:
   steer2: 0
   Z_Rotation: 5
   curTorque: 100
-  powerShift: 100
-  shift: 0
   speed: 0
   currentGear: 0
   NeutralGear: 1
@@ -1626,7 +1618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9020100676181948280
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,4 +1684,4 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4904796189775165327}
-  m_Enabled: 1
+  m_Enabled: 0
