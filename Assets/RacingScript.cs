@@ -26,7 +26,7 @@ public class RacingScript : MonoBehaviour
         }
         
     }
-
+     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("RedLine")) {

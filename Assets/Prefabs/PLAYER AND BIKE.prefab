@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2723757352669624677
 Transform:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4165316214971746185
 Transform:
   m_ObjectHideFlags: 0
@@ -1958,10 +1958,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MyBike
       objectReference: {fileID: 0}
+    - target: {fileID: 3895685412201848405, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
+      propertyPath: m_TagString
+      value: Bike
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354008337403897372, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
+      propertyPath: Z_Rotation
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8354008337403897372, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
       propertyPath: playerAndBikeObject
       value: 
       objectReference: {fileID: 5815544808343354326}
+    - target: {fileID: 8354008337403897372, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
+      propertyPath: bikeSetting.LimitForwardSpeed
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ccb39bd7c0dc294ab1c14cdb03f6d98, type: 3}
 --- !u!1 &6512030085033546930 stripped
