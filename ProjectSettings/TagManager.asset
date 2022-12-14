@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bike
   - Baguette
+  - RedLine
   layers:
   - Default
   - TransparentFX

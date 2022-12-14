@@ -1463,6 +1463,7 @@ GameObject:
   - component: {fileID: 8354008337403897375}
   - component: {fileID: 8354008337403897372}
   - component: {fileID: 274100743440930257}
+  - component: {fileID: 2418951410731489341}
   m_Layer: 0
   m_Name: MyBike
   m_TagString: Untagged
@@ -1538,19 +1539,13 @@ MonoBehaviour:
     cameraSwitchView: []
     MainBody: {fileID: 2062249471465015342}
     bikeSteer: {fileID: 2429973635634547669}
-    maxWheelie: 40
-    speedWheelie: 30
-    slipBrake: 3
     springs: 35000
     dampers: 4500
     bikePower: 300
-    shiftPower: 250
     brakePower: 12000
     shiftCentre: {x: 0, y: 0, z: 0}
     maxSteerAngle: 40
     maxTurn: 1.5
-    shiftDownRPM: 1500
-    shiftUpRPM: 4000
     idleRPM: 700
     stiffness: 1
     automaticGear: 1
@@ -1570,8 +1565,6 @@ MonoBehaviour:
   steer2: 0
   Z_Rotation: 5
   curTorque: 100
-  powerShift: 100
-  shift: 0
   speed: 0
   currentGear: 0
   NeutralGear: 1
@@ -1609,6 +1602,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 899349254051938286}
+--- !u!114 &2418951410731489341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895685412201848405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75444b3ee15827948ab4d4f3d1eba392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laptime: 0
+  laptimeText: {fileID: 0}
 --- !u!1 &4904796189775165327
 GameObject:
   m_ObjectHideFlags: 0
