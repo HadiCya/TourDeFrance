@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
+    public GameObject waypointsParent;
     public GameObject[] waypoints;
     [SerializeField]
     int currentWP = 0;
@@ -12,6 +13,11 @@ public class Waypoints : MonoBehaviour
     public float speed;
     [SerializeField]
     float WPradius = 1;
+
+    private void Awake()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
