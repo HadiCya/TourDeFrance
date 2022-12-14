@@ -11,14 +11,45 @@ public class Bike : MonoBehaviour
     float moveScale = 0.1f;
     float maxMoveSpeed = 6.5f;
     public GameObject spawnPoint;
+    public int playerID;
+    public Vector3 startPos;
+    PauseMenu pauseMenu;
+
+    private void Start()
+    {
+        transform.position = startPos;
+        GameObject[] boundingbox = GameObject.FindGameObjectsWithTag("BoundingBox");
+        gameObject.transform.SetParent(boundingbox[0].transform);
+        transform.localPosition = new Vector3(0, 0, 0);
+        pauseMenu = FindObjectOfType<PauseMenu>();
+    }
 
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>() * moveScale;
     }
 
+    private void OnPause()
+    {
+        if (pauseMenu.pausePanel == null)
+        {
+            Debug.Log("Pause panel is null, returning");
+            return;
+        }
+
+        if (PauseMenu.isPaused)
+        {
+            pauseMenu.Unpause();
+        }
+        else
+        {
+            pauseMenu.Pause();
+        }
+    }
+
     private void Update()
     {
+        
         // move the bike. Movement input should not be used for vertical (rb.y) velocity
         rb.velocity += new Vector3(moveInput.x, 0, moveInput.y);
 
@@ -26,7 +57,9 @@ public class Bike : MonoBehaviour
         var horizontalMovement = new Vector2(rb.velocity.x, rb.velocity.z);
         horizontalMovement = Vector2.ClampMagnitude(horizontalMovement, maxMoveSpeed);
         rb.velocity = new Vector3(horizontalMovement.x, rb.velocity.y, horizontalMovement.y);
-        transform.rotation = Quaternion.Euler(0, 90, 0);
+
+        // rotate the bike towards the foward direction of the bounding area
+        transform.localRotation = Quaternion.Euler(0, 90, 0);
     }
 
     // player dies, bike falls out of world, etc.

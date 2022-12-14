@@ -6,12 +6,13 @@ using UnityEngine.UIElements;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public LayerMask whatisGround, whatIsPlayer;
     public float health;
     public float moveSpeed;
     public float minDist;
     public float maxDist;
+    public Vector3 startPos;
 
     //Attacking
     public float timeBetweenAttacks;
@@ -22,25 +23,27 @@ public class EnemyAI : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange;
 
 
-    private void Awake()
+
+    private void Start()
     {
-        player = GameObject.Find("BMXBikeE").transform;
+        transform.position = startPos;
+        GameObject[] playerArray = GameObject.FindGameObjectsWithTag("Player");
+        player = playerArray[0];
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.LookAt(player);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 90, transform.eulerAngles.z);
+        Transform transformPlayer = player.transform;
+        transform.LookAt(transformPlayer);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
 
-        if (Vector3.Distance(transform.position, player.position) >= minDist)
+        if (Vector3.Distance(transform.position, transformPlayer.position) >= minDist)
         {
 
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, transformPlayer.position, moveSpeed * Time.deltaTime);
 
-
-
-            if (Vector3.Distance(transform.position, player.position) <= maxDist)
+            if (Vector3.Distance(transform.position, transformPlayer.position) <= maxDist)
             {
                 AttackPlayer();
             }
@@ -54,6 +57,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked) {
 
             //Place Actual Attack here!
+            Debug.Log("Attack player");
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

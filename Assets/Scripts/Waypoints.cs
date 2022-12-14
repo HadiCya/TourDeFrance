@@ -5,7 +5,7 @@ using UnityEngine;
 public class Waypoints : MonoBehaviour
 {
     public GameObject waypointsParent;
-    public GameObject[] waypoints;
+    public List<GameObject> waypoints;
     [SerializeField]
     int currentWP = 0;
     [SerializeField]
@@ -16,22 +16,30 @@ public class Waypoints : MonoBehaviour
 
     private void Awake()
     {
-        
+        foreach(Transform child in waypointsParent.transform)
+        {
+            waypoints.Add(child.gameObject);
+        }
+
+        waypoints.Reverse();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (waypoints.Length == 0) return;
+        if (waypoints.Count == 0) return;
 
+        // if we get close enough to the target waypoint, start heading to next waypoint
         if(Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < WPradius)
         {
             currentWP++;
-            if(currentWP >= waypoints.Length)
+            if(currentWP >= waypoints.Count)
             {
                 currentWP = 0;
             }
         }
+        
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWP].transform.position, Time.deltaTime * speed);
+        var q = Quaternion.LookRotation(waypoints[currentWP].transform.position - transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * speed);
     }
 }
